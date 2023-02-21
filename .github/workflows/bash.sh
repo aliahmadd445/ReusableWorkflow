@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ -z "${{inputs.tag}}" ]
           then
             echo "final_tag=latest" >> $GITHUB_ENV
