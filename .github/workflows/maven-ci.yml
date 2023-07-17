@@ -1,1 +1,30 @@
+name: Java CI with Maven reuseable workflow
 
+on:
+  workflow_call:
+    inputs:
+     java-version:
+       type: string
+       required: true
+     maven_command:
+       type: string
+       required: true
+     environment:  
+      type: string
+      required: true
+ 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up ${{ inputs.java-version }}
+        uses: actions/setup-java@v2
+        with:
+          java-version: '${{ inputs.java-version }}'
+          distribution: 'adopt'
+          cache: maven
+      - name: Build with Maven Wrapper
+        run: '${{ github.event.inputs.maven_command }}'
