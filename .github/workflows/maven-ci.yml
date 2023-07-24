@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
+      - name: echo test
+        run: echo "testing from main"
       - uses: actions/checkout@v2
       - name: Set up ${{ inputs.java-version }}
         uses: actions/setup-java@v2
