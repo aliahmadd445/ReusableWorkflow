@@ -1,4 +1,4 @@
-# Reusable Workflow
+# Reusable Workflow Template
 
 Example of a Reusable Workflow Actions template 
 
